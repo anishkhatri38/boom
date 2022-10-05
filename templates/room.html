@@ -69,17 +69,13 @@
                 <p>Hosted By</p>
                 <a href="{% url 'customer-profile' room.host.id %}" class="room__author">
                   <div class="avatar avatar--small">
-                    <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+                    <img src="{{ profile.imageURL}}" />
                   </div>
                   <span>@{{room.host.username}}</span>
                 </a>
               </div>
-              {% comment %} <div class="room__details">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, tenetur laudantium? Dicta repellendus
-                rerum consectetur, voluptatem repudiandae eum ea porro cupiditate provident nulla, deserunt, ab ipsum
-                corporis laboriosam deleniti molestias?
-              </div> {% endcomment %}
-              <span class="room__topics">JavaScript</span>
+              {{body}}
+              <span class="room__topics">{{room.topic}}</span>
             </div>
             <div class="room__conversation">
               <div class="threads scroll">
@@ -89,7 +85,7 @@
                     <div class="thread__author">
                       <a href="{% url 'customer-profile' message.user.id %}" class="thread__authorInfo">
                         <div class="avatar avatar--small">
-                          <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+                          <img src=""{{ profile.imageURL}}" />
                         </div>
                         <span>@{{message.user.username}}</span>
                       </a>
@@ -134,7 +130,7 @@
             {% for customer in participants%}
             <a href="{% url 'customer-profile' customer.id %}" class="participant">
               <div class="avatar avatar--medium">
-                <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+                <img src="{{ profile.imageURL}}" />
               </div>
               <p>
                 {{customer.username}}
