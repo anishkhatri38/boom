@@ -47,6 +47,7 @@ urlpatterns = [
 
     ## this is for footer 
     path('about/', views.AboutUs, name = 'about'),
+    path('video/', views.joinVideo, name = 'video'),
     
     # for membership of the program 
     path('membership/', views.userMembership, name = 'membership'),
@@ -62,7 +63,7 @@ urlpatterns = [
     path ('home_contact/', views.home_contact, name = 'home_contact'),
 
     path ('contact/', views.contact, name = 'contact'),
-    path ('testing/', views.Testing, name = 'testing'),
+    
 
     # for viewing the blog 
     path ('single/<slug:slug>', views.single, name="singel"),

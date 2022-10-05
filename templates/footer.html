@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Footer Design</title>
+  <title>Trainer Room</title>
+  <link rel="shortcut icon" href="/favicon.ico">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css">
@@ -27,8 +28,8 @@
   	 				<li><a href="#">FAQ</a></li>
   	 				<li><a href="{% url 'membership' %}">Membership</a></li>
   	 				<li><a href="{% url 'contact' %}">Contact Us</a></li>
-  	 				<li><a href="{% url 'testing' %}"></a>Testing</li>
-  	 				<li><a href="{% url 'product_home' %}">Our Products</a></li>
+  	 				{% comment %} <li><a href="{% url 'testing' %}"></a>Testing</li> {% endcomment %}
+  	 				<li><a href="{% url 'video' %}">Video</a></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">

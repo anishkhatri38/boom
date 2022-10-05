@@ -374,7 +374,7 @@ def activityPage(request):
 ## for footer design and content 
 @login_required(login_url='login')
 def AboutUs(request):
-    return render(request, 'testing.html')
+    return render(request, 'about.html')
 
 
  # for membership of the program 
@@ -382,10 +382,16 @@ def AboutUs(request):
 def userMembership(request):
     context = {}
     return render(request, 'membership.html', context)
+
 @login_required(login_url='login')
 def userCheckout(request):
     context = {}
     return render(request, 'checkout.html', context)
+
+@login_required(login_url='login')
+def joinVideo(request):
+    context = {}
+    return render(request,'agora.html', context)
 
 
 
@@ -465,5 +471,4 @@ def contact(request):
         return redirect('home_contact')
     return render (request,'contact.html' )
 
-def Testing(request):
-    return render (request,'testing.html' )
+
