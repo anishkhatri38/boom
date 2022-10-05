@@ -29,7 +29,7 @@ urlpatterns = [
     path('', views.index, name = 'index'),
     path('communicate/', views.communicate, name = 'communicate'),
     path('room/<str:pk>/', views.room, name = 'room'),
-    path('profile/<str:pk>/', views.customerProfile, name ='customer-profile'),
+    path('customer-profile/<str:pk>/', views.customerProfile, name ='customer-profile'),
     # path ('profile/<str:pk>/', views.userProfile, name = "user-profile"),
     
     path('create-room/', views.createRoom, name = "create-room"),
@@ -38,8 +38,8 @@ urlpatterns = [
     path('delete-message/<str:pk>/', views.deleteMessage, name = "delete-message"),
 
     path('update-user', views.updateUser, name = "update-user"),
-    path('login-customer/', views.loginCustomer, name = 'login-customer'),
-    path('register-customer/', views.registerCustomer, name = 'register-customer'),
+    path('login/', views.loginCustomer, name = 'login'),
+    # path('register-customer/', views.registerCustomer, name = 'register-customer'),
     ## for flexible device design 
     path('topics/', views.topicsPage, name = 'topics'),
     path('activity/', views.activityPage, name = 'activity'),

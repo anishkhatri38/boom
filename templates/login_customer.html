@@ -87,10 +87,10 @@
 				<div class="d-flex justify-content-center">
 
 
-					<h3 id="form-title">CUSTOMER LOGIN</h3>
+					<h3 id="form-title">LOGIN</h3>
 				</div>
 				<div class="d-flex justify-content-center form_container">
-					<form class="form-signin" method="POST" action="/login/">
+					<form class="form-signin" method="post" action="/login/">
                         {% csrf_token %}
 						<div class="input-group mb-3">
 							<div class="input-group-append">
@@ -111,11 +111,13 @@
 					</form>
 
 				</div>
+				
 		
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
-						Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+						Forgot Password?<a href="{% url 'reset_password' %}" class="ml-2">Forgot Password?</a>
 					</div>
+					
 			
 				</div>
 			</div>

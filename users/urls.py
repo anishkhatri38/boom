@@ -8,12 +8,14 @@ urlpatterns = [
 #for login 
 path('login/', views.loginUser, name = 'login'),
 path('logout/', views.logoutUser, name = 'logout'),
-path('register/', views.registerUser, name = 'register'),
+path('register-customer/', views.registerCustomer, name = 'register-customer'),
+path('register-trainer/', views.registerTrainer, name = 'register-trainer'),
 path ('contact/', views.contact, name = 'contact'),
 
 
 path('profiles', views.profiles, name = "profiles"),
-path ('profile/<str:pk>/', views.userProfile, name = "user-profile"),
+path ('user-profile/<str:pk>/', views.userProfile, name = "user-profile"),
+path ('customer-profile/<str:pk>/', views.userProfile, name = "customer-profile"),
 path('account/', views.userAccount, name = "account"),
 
 path('edit-account/',views.editAccount, name = "edit-account"),

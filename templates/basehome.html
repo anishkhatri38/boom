@@ -44,13 +44,11 @@
       <ul class="navbar-nav mr-auto">
       
         <li class="nav-item dropdown">
-          <a class="btn btn-outline-success my-2 my-sm-0" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="btn btn-primary btn-sm" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Login
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{% url 'login-customer' %}">Customer</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{% url 'login' %}">Trainer</a>
+            <a class="dropdown-item" href="{% url 'login' %}">Customer/Trainer</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/admin/">Admin</a> 
           </div>
@@ -62,13 +60,26 @@
      </div>
       
       <ul class="navbar-nav mr-auto">
-        {% comment %} <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'login-customer' %}" role="button">Customer</a> {% endcomment %}
-        <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'register' %}" id="navbarDropdown" role="button">Sign Up</a>
+      
+        <li class="nav-item dropdown">
+          <a class="btn btn-primary btn-sm" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Signup/Register
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'register-customer' %}">Customer</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'register-trainer' %}">Trainer</a>
+          </div>
+        </li>
       </ul>
       <ul>
       </ul>
     
     </form>
+  </div>
+  <div>
+  </div>
+  <div>
   </div>
 </nav>
  

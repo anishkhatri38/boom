@@ -10,11 +10,13 @@ from django.db.models import Q
 from .utils import searchProfiles,paginateProfiles
 from .models import Contact
 from datetime import datetime
-from .decorators import allowed_users, unauthenticated_user,admin_only
+from Hacker.decorators import unauthenticated_user,allowed_users,admin_only
+
 from django.contrib.auth.models import Group
+from Hacker.views import customerProfile
 
 # Create your views here.
-@unauthenticated_user
+
 # @allowed_users(allowed_roles=['trainer'])
 # @admin_only
 def loginUser(request):
@@ -43,7 +45,7 @@ def loginUser(request):
 
             else:
                 messages.error(request, 'username or password is incorrect!! ')
-    return render(request, 'users/login.html')
+    return render(request, 'login_customer.html')
 
 
 
@@ -53,7 +55,7 @@ def logoutUser(request):
     return redirect('index')
 
 
-def registerUser(request):
+def registerCustomer(request):
     page = 'register'
     form = CustomUserCreationForm()
 
@@ -65,13 +67,38 @@ def registerUser(request):
             user.save()
             
 
-            group = Group.objects.get(name='Trainer')
+            group = Group.objects.get(name='customer')
             user.groups.add(group)
 
-            messages.success(request, 'User account is created! thank you ')
+            messages.success(request, 'User account is created! Please sign In! ')
 
             login(request,user)
-            return redirect('login-customer')
+            return redirect('login')
+
+        else:
+            messages.success(request,'An error has occured during registration.')
+    context = {'page': page, 'form':form }
+    return render (request, 'users/register_customer.html', context )
+        
+def registerTrainer(request):
+    page = 'register'
+    form = CustomUserCreationForm()
+
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+            
+
+            group = Group.objects.get(name='trainer')
+            user.groups.add(group)
+
+            messages.success(request, 'User account is created! Please sign In! ')
+
+            login(request,user)
+            return redirect('login')
 
         else:
             messages.success(request,'An error has occured during registration.')
@@ -80,7 +107,7 @@ def registerUser(request):
 
 
     context = {'page': page, 'form':form }
-    return render (request, 'users/register_customer.html', context )
+    return render (request, 'users/register_trainer.html', context )
 
 
 
@@ -96,13 +123,18 @@ def profiles(request):
 
 # @login_required(login_url='login')
 
-@allowed_users(allowed_roles=['Admin'])
+
 def userProfile(request,pk):
     profile = Profile.objects.get(id = pk)
     topSkills = profile.skill_set.exclude(description__exact = "")
     otherSkills = profile.skill_set.filter(description = "")
     context = {'profile': profile, 'topSkills':topSkills, 'otherSkills':otherSkills}
     return render (request, 'users/user-profile.html', context )
+
+def customerProfile(request,pk):
+    profile = Profile.objects.get(id = pk)
+    context = {'profile': profile}
+    return render (request, 'users/customer-profile.html', context )
 
 @login_required(login_url = 'login')
 def userAccount(request):
@@ -129,6 +161,7 @@ def editAccount(request):
     return render (request, 'users/profile_form.html', context)
 
 @login_required(login_url = 'login')
+@allowed_users(allowed_roles=['admin','staff'])
 def createSkill(request):
     profile = request.user.profile 
     form = SkillForm()
@@ -146,6 +179,7 @@ def createSkill(request):
 
 
 @login_required(login_url = 'login')
+@allowed_users(allowed_roles=['admin','staff'])
 def updateSkill(request, pk):
     profile = request.user.profile 
     skill = profile.skill_set.get(id=pk)

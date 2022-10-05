@@ -22,7 +22,7 @@ def allowed_users(allowed_roles=[]):
             if group in allowed_roles:
                 return view_func(request,*args, **kwargs)
             else:
-                return HttpResponse("Your are not authorized to view this page")
+                return HttpResponse("Sorry, you are not authorized to perfrom this action on this page.Only the Trainers have acess to this functionality ")
 
             
             
@@ -39,14 +39,14 @@ def admin_only(allowed_roles=[]):
             if request.user.groups.exists():
                 group = request.user.groups.all()[0].name
 
-            if group == 'active':
-                return redirect('Products/products_home.html')
+            if group == 'customer':
+                return redirect('communicate')
 
             if group == 'trainer':
-                return redirect('staff')
+                return redirect('room')
 
             if group == 'superuser':
-                return redirect('projects')
+                return view_func(request, *args, **kwargs)
 
   
             else:
