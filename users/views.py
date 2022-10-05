@@ -161,7 +161,7 @@ def editAccount(request):
     return render (request, 'users/profile_form.html', context)
 
 @login_required(login_url = 'login')
-@allowed_users(allowed_roles=['admin','staff'])
+@allowed_users(allowed_roles=['admin','trainer'])
 def createSkill(request):
     profile = request.user.profile 
     form = SkillForm()
@@ -179,7 +179,7 @@ def createSkill(request):
 
 
 @login_required(login_url = 'login')
-@allowed_users(allowed_roles=['admin','staff'])
+@allowed_users(allowed_roles=['admin','trainer'])
 def updateSkill(request, pk):
     profile = request.user.profile 
     skill = profile.skill_set.get(id=pk)
@@ -194,7 +194,7 @@ def updateSkill(request, pk):
     context = {'form':form}
     return render(request, 'users/skill_form.html', context )
 
-
+@allowed_users(allowed_roles=['admin','trainer'])
 def deleteSkill(request,pk):
     profile = request.user.profile
     skill = profile.skill_set.get (id = pk)

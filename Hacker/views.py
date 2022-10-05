@@ -212,7 +212,7 @@ def project(request,pk):
 
     
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['admin','staff'])
+@allowed_users(allowed_roles=['admin','trainer'])
 def createProject(request):
     profile = request.user.profile
     form = ProjectForm()
@@ -236,6 +236,7 @@ def createProject(request):
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin','trainer'])
 def updateProject(request,pk):
     profile = request.user.profile
     project = profile.project_set.get(id=pk)
@@ -258,6 +259,7 @@ def updateProject(request,pk):
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin','trainer'])
 def deleteProject(request,pk):
     profile = request.user.profile
     project = profile.project_set.get (id = pk)

@@ -14,7 +14,7 @@
         <button data-product = {{product.id}} data-action = "add" 
          class="btn btn-outline-secondary add-btn
           update-cart">Add to Cart</button>
-				<a class="btn btn-outline-success" href="#">View</a>
+				{% comment %} <a class="btn btn-outline-success" href="#">View</a> {% endcomment %}
 				<h4 style="display: inline-block; float: right"><strong>${{product.price|floatformat:2}}</strong></h4>
 
 			</div>
@@ -23,18 +23,22 @@
     </div>
 		</div>
 
+
   
     {% endfor %}
+    
+
     
     
 
   
 
    
-     
+   
   
 
 {% endblock content %}
+
 
 {% comment %} <div class="hero-section__search">
     <form id = 'searchForm' class="form" action="{% url 'profiles'%}" method="get">
