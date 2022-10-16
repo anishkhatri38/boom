@@ -186,7 +186,7 @@ def projects(request):
 
 
 
-@login_required(login_url='login')
+
 def project(request,pk):
     projectObj = Project.objects.get(id=pk)
     form = ReviewForm()
