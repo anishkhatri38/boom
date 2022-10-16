@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-@l%cz_h5ph#7w^(1+u8hg9*t4ajwqpt=g!%rh615wszvx(a-rh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','himalayanwarriorscricketclub.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -173,15 +173,15 @@ USE_I18N = True
 USE_TZ = True
 
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = 'True'
-EMAIL_HOST_USER = 'traineroom9@gmail.com'
-EMAIL_HOST_PASSWORD = 'wafjhecxyxtyygeo'
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = 'True'
+# EMAIL_HOST_USER = 'traineroom9@gmail.com'
+# EMAIL_HOST_PASSWORD = 'wafjhecxyxtyygeo'
 
 
 
