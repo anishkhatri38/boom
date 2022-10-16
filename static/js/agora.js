@@ -1,6 +1,6 @@
-const APP_ID = "c81f69d01a4d4790934cbb74c19c3b36"
-const TOKEN = "007eJxTYFi21OypSvNsppPWPxkjP35q3rdH+pWu68/HUur1nb4BwfoKDEaWFpYWieapyaZJliZJFmlJJpZpRknGKQaGZkbmyckmZx/aJvsa2yfXFaQyMTJAIIjPyuCYl1mcwcAAAI86IJI="
-const CHANNEL = "Anish"
+const APP_ID = "29898a7ec5b94b8fb49f2b3d01627cc4"
+const TOKEN = "007eJxTYDhwPaT7V9tcjZNznB14zBQPrzjQ1be7983N/XUVBvu3eH1WYDCytLC0SDRPTTZNsjRJskhLMrFMM0oyTjEwNDMyT042SUl0Sn68yTm56U8cCyMDIwMLEIP4TGCSGUyygEkehpCixMy81CKFoPz8XAYGAIMpLh0="
+const CHANNEL = "Trainer Room"
 
 const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'})
 
