@@ -173,7 +173,7 @@ def deleteMessage(request,pk):
 
 
 
-
+@login_required(login_url='login')
 def projects(request):  
    projects, search_query = searchProjects(request)
    custom_range, projects = paginateProjects(request,projects,3)
